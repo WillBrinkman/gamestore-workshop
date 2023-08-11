@@ -1,15 +1,16 @@
 const client = require('./client');
 const util = require('util');
 
-const REPLACE_ME = 'HELP REPLACE ME!!!!';
 
 // GET - /api/video-games - get all video games
 async function getAllVideoGames() {
     try {
-        const { rows: videoGames } = await client.query(REPLACE_ME);
+        const { rows: videoGames } = await client.query(`
+        SELECT * FROM boardgames;
+    `);
         return videoGames;
     } catch (error) {
-        throw new Error("Make sure you have replaced the REPLACE_ME placeholder.")
+        throw error;
     }
 }
 
